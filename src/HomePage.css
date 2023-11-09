@@ -1,0 +1,44 @@
+.Dropdown-root {
+    border: red 2px solid;
+    border-radius: 10px;
+    font-size: 2vw;
+    background-color: pink;
+}
+
+.Dropdown-placeholder {
+    margin: 2%;
+    padding: 2%;
+    font-size: 120%;
+    font-weight: bold;
+}
+
+.Dropdown-placeholder:hover {
+    cursor: pointer;
+}
+
+.Dropdown-arrow {
+    float: right;
+    border: 1vh solid;
+}
+
+/* .arrow-closed {
+
+}
+
+.arrow-open {
+    
+} */
+
+.Dropdown-option {
+    height: 1vh;
+    margin: 2%;
+    padding: 5%;
+    border: 2px solid;
+    border-radius: 100px;
+    text-align: center;
+}
+
+.Dropdown-option:hover {
+    font-size: 3vw;
+    cursor: pointer;
+}
