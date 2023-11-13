@@ -2,7 +2,7 @@ import React from "react";
 import Dropdown from "react-dropdown";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 // import { Articles } from "../files/data";
-import { getData } from "../files/data";
+
 import "../HomePage.css";
 
 // Articles.array.forEach(element => {
@@ -14,7 +14,7 @@ const options = [
 ];
 
 function Home () {
-    getData("P2023071200503");
+    
     return (
         <div>
             <h1>this is where the HOME will be</h1>

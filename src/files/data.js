@@ -1,21 +1,35 @@
 import terms_jensen from './terms_jensen.json';
 import terms_george from './terms_george_tf.json';
-import P2023071200503 from './articles/P2023071200503.json';
-import P2023071200494 from "./articles/P2023071200494.json";
-import P2023071200629 from "./articles/P2023071200629.json";
-import { useState } from "react";
+
+import { useCallback, useState } from "react";
 
 
 export const termsJensen = terms_jensen;
 export const termsGeorge = terms_george;
-export const articleData = [P2023071200503, P2023071200494, P2023071200629];
+// export const articleData = [P2023071200503, P2023071200494, P2023071200629];
 // export const Articles = articles;
 
-export async function getData(fileName) {
-    let f = `./articles/${fileName}.json`;
+
+// export function getData(fileName) {
+//     console.log(`using getData function ${fileName}`)
+//     var data = new Promise(function(resolve, reject) {
+        
+//         
+//     })
+
+//     return data;
+// }
+
+export function getData(fileName) {
+    
+    var f = `./articles/${fileName}.json`;
     console.log(f);
-    const data = await import(f);
-    console.log(data);
+
+    const data = fetch(f,
+        {headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        }}).then(res => res.json()).then(data => console.log(data));
     return data;
 
 }
