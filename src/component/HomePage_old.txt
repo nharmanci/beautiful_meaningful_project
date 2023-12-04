@@ -1,0 +1,75 @@
+import { React, useState, useEffect }from "react";
+import Dropdown from "react-dropdown";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { articles } from "../files/data.js";
+import "../HomePage.css";
+import Article from "./ArticlePage.js";
+
+
+function Home () {
+
+
+    const titles = articles.map(t=>t["title"]);
+
+
+    // let number = null;
+    
+    // const [data, setData ] = useState(0);
+    const [ number, setNumber ] = useState(null);
+
+    // function setNumber(i) {
+    //     // setData(i)
+    //     return i;
+    // }
+
+
+    function changeNumber(evt) {
+        console.log(evt.value.props.id);
+        // for (let i=0; i<articles.length; i++){
+        //     return(
+        //         <p>{articles[i]["title"]}</p>
+        //     )
+        // }
+
+        // setNumber(evt.value.props.id);
+        setNumber(evt.value.props.id);
+        return evt.value.props.id
+    }
+    
+    
+    function genLinks() {
+        var links = [];
+        
+        // for (let i=0; i<articles.length; i++){
+        //     return(
+        //         <Link to="/ArticlePage" onClick={(evt) => setNumber(evt)}>{articles[i]["title"]}</Link>
+        //     )
+        // }
+
+        for (let i=0; i<articles.length; i++){
+            // links.push(<Link to="/ArticlePage" onClick={(evt) => displayContent(evt)}>{articles[i]["title"]}</Link>)
+            // links.push(<Link to="/ArticlePage" >{articles[i]["title"]}</Link>)
+            links.push(<p id={i}>{articles[i]["title"]}</p>);
+        }
+        return links;
+    }
+    
+
+    console.log(number);
+    return (
+
+        <div>
+            <h1>this is where the HOME will be</h1>
+            <Link to="/">Home</Link>
+            <Link to='/ArticlePage'>Article</Link>
+            {/* <Dropdown options={genLinks()} onChange={(evt) => changeNumber(evt)} placeholder="pls select an article" /> */}
+            {/* <Dropdown options={genLinks()} placeholder="pls select an article" arrowClosed={<span className="arrow-closed"/>} arrowOpen={<span className="arrow-open"/>}/> */}
+            <Dropdown options={genLinks()} onChange={(evt) => <Article idx={changeNumber(evt)} />} placeholder="pls select an article" /> 
+            
+            <Article idx={number} />
+        </div>
+    )
+}
+
+export default Home;
+export var number;
